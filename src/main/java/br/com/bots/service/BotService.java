@@ -31,7 +31,7 @@ public class BotService {
 
     public ResponseEntity getAll() {
         List<Bot> bots = botRepository.findAll();
-        if (!bots.isEmpty()) {
+        if (bots.isEmpty()) {
             LOGGER.error("No bots founded.");
             return ResponseEntity.badRequest().body("No bots founded.");
         }
@@ -48,7 +48,7 @@ public class BotService {
 
         try {
             botRepository.save(bot);
-            return ResponseEntity.ok("Bot has been inserted sucessfully");
+            return ResponseEntity.ok("Bot has been inserted successfully.");
         } catch (Exception e) {
             LOGGER.error("Fail to insert bot, error: ".concat(e.getMessage()));
             return ResponseEntity.badRequest().body("Error to insert bot.");
@@ -63,7 +63,7 @@ public class BotService {
         Bot bot = convertToEntity(botDTO);
         try {
             botRepository.save(bot);
-            return ResponseEntity.ok("Bot has been updated sucessfully");
+            return ResponseEntity.ok("Bot has been updated successfully.");
         } catch (Exception e) {
             LOGGER.error("Fail to insert bot, error: ".concat(e.getMessage()));
             return ResponseEntity.badRequest().body("Error to update bot.");
@@ -83,7 +83,7 @@ public class BotService {
         }
         try {
             botRepository.deleteById(id);
-            return ResponseEntity.ok("Bot has been deleted sucessfuly");
+            return ResponseEntity.ok("Bot has been deleted successfully.");
         } catch (Exception e) {
             LOGGER.error("Update failed, error: ".concat(e.getMessage()));
             return ResponseEntity.badRequest().body("Error to delete bot.");

@@ -18,16 +18,13 @@ public class DbSeeder implements CommandLineRunner {
 	
 	@Override
 	public void run(String... args) throws Exception {
-		/*
 		botRepository.deleteAll();
-
 		Bot bot = new Bot();
 
 		bot.setId(UUID.randomUUID().toString());
 		bot.setName("Aureo");
 
 		botRepository.insert(bot);
-		*/
 	}
 
 }

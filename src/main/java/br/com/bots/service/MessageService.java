@@ -50,7 +50,7 @@ public class MessageService {
 
         try {
             messageRepository.save(message);
-            return ResponseEntity.ok("Message has been inserted sucessfully");
+            return ResponseEntity.ok("Message has been inserted successfully.");
         } catch (Exception e) {
             LOGGER.error("Fail to insert message, error: ".concat(e.getMessage()));
             return ResponseEntity.badRequest().body("Error to insert message.");
