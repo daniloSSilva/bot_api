@@ -31,13 +31,13 @@ public class MessageService {
         this.messageRepository = messageRepository;
     }
 
-    public ResponseEntity getAll() {
-        List<Message> bots = messageRepository.findAll();
-        if (!bots.isEmpty()) {
-            LOGGER.error("No bots founded.");
-            return ResponseEntity.badRequest().body("No bots founded.");
+    public ResponseEntity findAll() {
+        List<Message> messages = messageRepository.findAll();
+        if (messages.isEmpty()) {
+            LOGGER.error("No messages founded.");
+            return ResponseEntity.badRequest().body("No messages founded.");
         }
-        return ResponseEntity.ok(bots);
+        return ResponseEntity.ok(messages);
     }
 
     public ResponseEntity save(MessageDTO messageDTO) {
@@ -65,6 +65,16 @@ public class MessageService {
         }
         LOGGER.info("Message id: ".concat(id).concat(" localizado."));
         return ResponseEntity.ok(message);
+    }
+
+    public ResponseEntity findByConversationId(String conversationId) {
+        List<Message> messages = messageRepository.findByConversationId(conversationId);
+        if (messages.isEmpty()) {
+            LOGGER.error("No messages with the conversation id: ".concat(conversationId));
+            return ResponseEntity.badRequest().body("No messages with the conversation id: ".concat(conversationId));
+        }
+        LOGGER.info("Message conversation id: ".concat(conversationId).concat(" conversation localizado."));
+        return ResponseEntity.ok(messages);
     }
 
     public MessageDTO convertToDTO(Message message) throws MappingException {

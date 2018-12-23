@@ -1,4 +1,4 @@
-package br.com.bots.bots;
+package br.com.bots;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

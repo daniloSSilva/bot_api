@@ -14,6 +14,8 @@ import java.io.Serializable;
 @RestController
 @RequestMapping("/messages")
 public class MessageController implements Serializable {
+    private static final long serialVersionUID = -3178211173687673907L;
+
     private static final Logger LOGGER = LoggerFactory.getLogger(MessageController.class);
 
     private MessageRepository messageRepository;
@@ -25,21 +27,28 @@ public class MessageController implements Serializable {
     @Autowired
     private MessageService messageService;
 
-    @GetMapping
+    // TODO: REMOVER DEPOIS ESTE METODO
+    @GetMapping("/")
     public ResponseEntity findAll() {
-        LOGGER.info("Finding all bots...");
-        return messageService.getAll();
+        LOGGER.info("Finding all messages...");
+        return messageService.findAll();
     }
 
     @GetMapping("/{id}")
     public ResponseEntity findById(@PathVariable("id") String id) {
-        LOGGER.info("Finding all bots...");
+        LOGGER.info("Finding message id ...".concat(id));
         return messageService.findById(id);
+    }
+
+    @GetMapping
+    public ResponseEntity findByConversationId( @RequestParam("conversationId") String conversationId ) {
+        LOGGER.info("Finding message id ...".concat(conversationId));
+        return messageService.findByConversationId(conversationId);
     }
 
     @PostMapping
     public ResponseEntity save(@RequestBody MessageDTO messageDTO) {
-        LOGGER.info("Inserting new bot...");
+        LOGGER.info("Inserting new message...");
         return messageService.save(messageDTO);
     }
 }
