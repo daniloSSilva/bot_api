@@ -1,9 +1,7 @@
 package br.com.bots.service;
 
 import br.com.bots.dto.MessageDTO;
-import br.com.bots.dto.MessageDTO;
 import br.com.bots.model.Message;
-import br.com.bots.repository.BotRepository;
 import br.com.bots.repository.MessageRepository;
 import org.modelmapper.MappingException;
 import org.modelmapper.ModelMapper;

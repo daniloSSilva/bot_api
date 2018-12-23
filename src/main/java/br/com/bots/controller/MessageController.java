@@ -51,4 +51,5 @@ public class MessageController implements Serializable {
         LOGGER.info("Inserting new message...");
         return messageService.save(messageDTO);
     }
+
 }
