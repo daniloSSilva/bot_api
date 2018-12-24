@@ -3,6 +3,8 @@ package br.com.bots.dto;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Date;
+
 public class MessageDTO {
     @Getter
     @Setter
@@ -14,7 +16,7 @@ public class MessageDTO {
 
     @Getter
     @Setter
-    private String timestamp;
+    private Date timestamp;
 
     @Getter
     @Setter
