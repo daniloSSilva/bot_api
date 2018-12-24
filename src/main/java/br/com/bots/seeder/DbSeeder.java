@@ -37,7 +37,7 @@ public class DbSeeder implements CommandLineRunner {
             Message m = new Message();
             m.setId(UUID.randomUUID().toString());
             m.setFrom(bot.getId());
-            m.setTo(UUID.randomUUID().toString()); // id do user nao sei quem é
+            m.setTo(UUID.randomUUID().toString());
             m.setConversationId(UUID.randomUUID().toString());
             m.setText("Olá posso ajudar? (Bot)");
             m.setTimestamp(new Date());
@@ -58,7 +58,7 @@ public class DbSeeder implements CommandLineRunner {
             Message m3 = new Message();
             m3.setId(UUID.randomUUID().toString());
             m3.setFrom(bot.getId());
-            m3.setTo(m.getTo()); // id do user nao sei quem é
+            m3.setTo(m.getTo());
             m3.setConversationId(m.getConversationId());
             m3.setText("Plano atualizado com sucesso. ");
             m3.setTimestamp(new Date());
@@ -75,7 +75,7 @@ public class DbSeeder implements CommandLineRunner {
             Message m = new Message();
             m.setId(UUID.randomUUID().toString());
             m.setFrom(bot.getId());
-            m.setTo(UUID.randomUUID().toString()); // id do user nao sei quem é
+            m.setTo(UUID.randomUUID().toString());
             m.setConversationId(UUID.randomUUID().toString());
             m.setText("Olá posso ajudar? (Bot)");
             m.setTimestamp(new Date());
@@ -84,7 +84,7 @@ public class DbSeeder implements CommandLineRunner {
 
             Message m2 = new Message();
             m2.setId(UUID.randomUUID().toString());
-            m2.setFrom(m.getTo());  // id do user nao sei quem é
+            m2.setFrom(m.getTo());
             m2.setTo(bot.getId());
             m2.setConversationId(m.getConversationId());
             m2.setText("Não. (User)");

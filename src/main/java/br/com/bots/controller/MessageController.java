@@ -27,13 +27,6 @@ public class MessageController implements Serializable {
     @Autowired
     private MessageService messageService;
 
-    // TODO: REMOVER DEPOIS ESTE METODO
-    @GetMapping("/")
-    public ResponseEntity findAll() {
-        LOGGER.info("Finding all messages...");
-        return messageService.findAll();
-    }
-
     @GetMapping("/{id}")
     public ResponseEntity findById(@PathVariable("id") String id) {
         LOGGER.info("Finding message id ...".concat(id));
