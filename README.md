@@ -1,5 +1,4 @@
-# bots
-THE BOT API
+# THE BOT API
 
 O projeto consiste em troca de mensagens de bots com usuarios anônimos
 
